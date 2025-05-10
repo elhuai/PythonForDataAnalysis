@@ -1,0 +1,25 @@
+{
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#7ebeff",
+    "activityBar.background": "#7ebeff"
+  },
+  "favorites.resources": [
+    {
+      "filePath": "src/constants/exportsFormat.json",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/pages/clientTransactionQuery/custOperationLog",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/redux/clientTransactionQuery/custOperationLog",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/util/PrintConfig.js",
+      "group": "Default"
+    }
+  ],
+  "favorites.sortOrder": "ASC"
+}
