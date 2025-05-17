@@ -27,7 +27,6 @@ time = 0
 answer = random.randint(1,99)
 minNum = 0
 maxNum = 99 
-
 while True:
     number = int(input("enter a number"))
     time += 1
