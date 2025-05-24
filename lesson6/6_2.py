@@ -1,0 +1,40 @@
+def menu(wine:str,entree:str,dessert:str)->None:
+    print(f"前酒:{wine}")
+    print(f"主餐:{entree}")
+    print(f"甜點:{dessert}")
+
+
+# menu("白酒","牛排","蛋糕")
+# 有給等號的話 就可以引數名稱的呼叫（可以不依照順序）
+menu(entree="牛排",wine="白酒",dessert="蛋糕")
+
+
+# 混合呼叫
+# 前面使用「引數值」的呼叫（沒有default值）
+# 後面使用引數名稱的呼叫
+# 引數名稱後,全部都要用引數名稱
+# 沒有default值用引數值呼叫，有default值的用印數名稱呼叫
+
+menu('白酒',dessert='蛋糕',entree='牛排')
+
+
+# *參數名稱
+# 沒有限制數量的引數值的呼叫
+def print_args(*args):
+    #tuple
+    print(args)
+print_args(1, 2, 3, 'a','b','c',True, False)
+
+# **參數名稱
+# 沒有限定數量的引數名稱呼叫
+def print_kwargs(**kargs):
+    #dictionary詞典物件
+    print(kargs)
+
+print_kwargs(one=1, two=2, three=3, four=4, five=5)
+
+def print_all(*args1, **kwargs):
+    print(args1)
+    print(kwargs)
+
+print_all(1, 2, 3, 'a', 'b', 'c', True, False,one=1, two=2, three=3, four=4, five=5)
