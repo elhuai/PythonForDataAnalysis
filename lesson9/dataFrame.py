@@ -10,4 +10,4 @@ df1 = pd.DataFrame(stacks)
 df1.to_excel("個股日成交資訊.xlsx",sheet_name="第一頁",index=False)
 
 rf = pd.read_excel("個股日成交資訊.xlsx")
-print(rf.tail())
+print(rf.tail()) #尾巴五筆資料
