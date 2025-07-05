@@ -6,14 +6,14 @@ import pandas as pd
 import plotly.graph_objects as go
 from datetime import datetime
 
-# 页面配置
+# 頁面配置
 st.set_page_config(
     page_title="📈 台股分析",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
-# 自定义 CSS 样式
+# 自定義 css
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
@@ -262,7 +262,7 @@ if not df.empty:
             st.session_state.start_date_selected = df.index[0].date()
             st.session_state.end_date_selected = df.index[-1].date()
 
-    # 自定义日期选择
+    # 自定義選擇日期
     st.markdown("### 🗓️ 自訂日期區間")
     date_col1, date_col2 = st.columns(2)
     
@@ -325,23 +325,22 @@ if selected and st.session_state.start_date_selected and st.session_state.end_da
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # 图表展示
+        # 圖表展示
         for i, col in enumerate(filtered_df.columns):
             st.markdown('<div class="stock-card">', unsafe_allow_html=True)
             chart_data = filtered_df[[col]].round(0)
             st.markdown(f"### 📈 {col} 股價走勢分析")
             
-            # 动态调整 y 轴
+            # 動態調整 y 轴
             min_val = chart_data.min().min()
             max_val = chart_data.max().max()
             margin = (max_val - min_val) * 0.1 if max_val > min_val else 1
             y_min = int(min_val - margin)
             y_max = int(max_val + margin)
             
-            # 创建更漂亮的图表
             fig = go.Figure()
             
-            # 添加渐变色线条
+            # 添加漸變色彩條
             colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7']
             fig.add_trace(go.Scatter(
                 x=chart_data.index, 
@@ -375,7 +374,7 @@ if selected and st.session_state.start_date_selected and st.session_state.end_da
             st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
         
-        # 数据表格
+        # 數據表格
         st.markdown('<div class="stock-card">', unsafe_allow_html=True)
         st.markdown("### 📋 價格數據表")
         st.dataframe(
@@ -389,7 +388,7 @@ if selected and st.session_state.start_date_selected and st.session_state.end_da
 else:
     st.info("👆 請先選擇股票和日期區間開始分析")
 
-# 页脚
+# footer
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #666; padding: 1rem;'>
