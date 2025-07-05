@@ -214,7 +214,7 @@ with col2:
     if selected:
         st.markdown("### 📊 已選股票")
         for stock in selected:
-            st.markdown(f"✅ **{stock}**")
+            st.markdown(f"☑️ **{stock}**")
     else:
         st.markdown("### ⚠️ 請選擇股票")
 
@@ -361,10 +361,10 @@ if selected and st.session_state.start_date_selected and st.session_state.end_da
                     gridcolor='rgba(128,128,128,0.3)'
                 ),
                 xaxis=dict(
-                    title="📅 日期",
+                    title=" 日期",
                     gridcolor='rgba(128,128,128,0.3)'
                 ),
-                yaxis_title="💰 收盤價 (NT$)",
+                yaxis_title="收盤價 (NT$)",
                 showlegend=False,
                 font=dict(size=12),
                 margin=dict(t=20, b=20, l=20, r=20),
@@ -391,7 +391,7 @@ else:
 # footer
 st.markdown("---")
 st.markdown("""
-<div style='text-align: center; color: #666; padding: 1rem;'>
+<div style='text-align: center;'>
     <p>📊 台股分析</p>
     <p>💡 數據來源：Yahoo Finance | 僅供參考，投資有風險</p>
 </div>
