@@ -24,8 +24,8 @@ st.markdown("""
     }
     
     .main-header {
-        background: linear-gradient(135deg, #D4A574 0%, #B8860B 100%);
-        padding: 2.5rem 2rem;
+        background: linear-gradient(135deg, #62cef8 0%, #0b31b8 100%);
+        padding: 0.5rem 2rem;
         border-radius: 20px;
         color: white;
         text-align: center;
@@ -242,33 +242,33 @@ if not df.empty:
     
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
-        if st.button('📅 近一週', help="查看最近 7 天的股價走勢"):
+        if st.button('近一週', help="查看最近 7 天的股價走勢"):
             st.session_state.start_date_selected = max((pd.Timestamp(today) - pd.Timedelta(weeks=1)).date(), df.index[0].date())
             st.session_state.end_date_selected = min(today, df.index[-1].date())
     with col2:
-        if st.button('📅 近一月', help="查看最近 30 天的股價走勢"):
+        if st.button('近一月', help="查看最近 30 天的股價走勢"):
             st.session_state.start_date_selected = max((pd.Timestamp(today) - pd.Timedelta(days=30)).date(), df.index[0].date())
             st.session_state.end_date_selected = min(today, df.index[-1].date())
     with col3:
-        if st.button('📅 近三月', help="查看最近 3 個月的股價走勢"):
+        if st.button('近三月', help="查看最近 3 個月的股價走勢"):
             st.session_state.start_date_selected = max((pd.Timestamp(today) - pd.Timedelta(days=90)).date(), df.index[0].date())
             st.session_state.end_date_selected = min(today, df.index[-1].date())
     with col4:
-        if st.button('📅 今年以來', help="查看今年至今的股價走勢"):
+        if st.button('今年以來', help="查看今年至今的股價走勢"):
             st.session_state.start_date_selected = max(pd.to_datetime(f'{today.year}-01-01').date(), df.index[0].date())
             st.session_state.end_date_selected = min(today, df.index[-1].date())
     with col5:
-        if st.button('📅 全部時間', help="查看所有可用數據"):
+        if st.button('全部時間', help="查看所有可用數據"):
             st.session_state.start_date_selected = df.index[0].date()
             st.session_state.end_date_selected = df.index[-1].date()
 
     # 自定义日期选择
-    st.markdown("### 📆 自訂日期區間")
+    st.markdown("### 🗓️ 自訂日期區間")
     date_col1, date_col2 = st.columns(2)
     
     with date_col1:
         start_date_input = st.date_input(
-            "🗓️ 開始日期", 
+            "開始日期", 
             value=st.session_state.start_date_selected, 
             min_value=df.index[0].date(), 
             max_value=df.index[-1].date(),
@@ -276,7 +276,7 @@ if not df.empty:
         )
     with date_col2:
         end_date_input = st.date_input(
-            "🗓️ 結束日期", 
+            "結束日期", 
             value=st.session_state.end_date_selected, 
             min_value=df.index[0].date(), 
             max_value=df.index[-1].date(),
@@ -377,7 +377,7 @@ if selected and st.session_state.start_date_selected and st.session_state.end_da
         
         # 数据表格
         st.markdown('<div class="stock-card">', unsafe_allow_html=True)
-        st.markdown("### 📋 詳細數據表")
+        st.markdown("### 📋 價格數據表")
         st.dataframe(
             filtered_df.round(2).style.background_gradient(cmap='RdYlGn'),
             use_container_width=True
